@@ -1,7 +1,7 @@
 
 # 🔧 Spring Boot Infrastructure Components
 
-This repository contains modular Spring Boot API projects designed for learning, demonstrations, and backend service architecture.
+Core infrastructure components built with Spring Boot to support scalable microservices.Provide reusable foundations for common functionalities, enabling faster development and consistent architecture across projects.
 
 ## 📁 Projects
 
