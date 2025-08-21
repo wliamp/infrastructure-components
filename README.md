@@ -5,6 +5,8 @@ This repository contains modular Spring Boot API projects designed for learning,
 
 ## 📁 Projects
 
+- [API Gateway](./api-gateway) – Acts as a secure gateway for client requests, responsible for routing, authenticating JWT tokens, and forwarding validated requests to internal APIs.
+
 - [Service Registry](./service-registry) – The central service registry module responsible for registering and managing all microservices within the distributed system.
 
 Each module is independently runnable and documented in its own README.md file.
