@@ -7,6 +7,8 @@ Core infrastructure components built with Spring Boot to support scalable micros
 
 - [API Gateway](./api-gateway) – Acts as a secure gateway for client requests, responsible for routing, authenticating JWT tokens, and forwarding validated requests to internal APIs.
 
+- [Config Server](./config-server) – Centralized configuration management module responsible for serving externalized configuration properties to all microservices, supporting dynamic property updates and environment-specific profiles.
+
 - [Service Registry](./service-registry) – The central service registry module responsible for registering and managing all microservices within the distributed system.
 
 Each module is independently runnable and documented in its own README.md file.
