@@ -5,6 +5,15 @@ plugins {
 }
 
 dependencies {
+    implementation 'io.github.wliamp:spring-boot-starter-token:0.0.5'
+    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    runtimeOnly 'org.postgresql:postgresql'
+    runtimeOnly 'org.postgresql:r2dbc-postgresql'
+    testImplementation 'io.projectreactor:reactor-test'
 }
 
 tasks.named('test') {
