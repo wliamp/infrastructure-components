@@ -1,6 +1,7 @@
 rootProject.name = 'infrastructure-components'
 
-include("gtw", "regis", "config")
-project(":gtw").projectDir = file("api-gateway")
-project(":regis").projectDir = file("service-registry")
-project(":config").projectDir = file("config-server")
+include 'gtw', 'regis', 'config', 'authn'
+project(':gtw').projectDir = file('api-gateway')
+project(':regis').projectDir = file('service-registry')
+project(':config').projectDir = file('config-server')
+project(':authn').projectDir = file('authentication')
