@@ -1,6 +1,7 @@
 package gtw.compo;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -11,6 +12,7 @@ import reactor.core.publisher.Mono;
 
 import java.util.UUID;
 
+@RefreshScope
 @Slf4j
 @Component
 public class LoggingFilter implements GlobalFilter, Ordered {

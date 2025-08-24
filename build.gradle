@@ -36,8 +36,9 @@ subprojects {
     dependencies {
 		implementation 'io.micrometer:micrometer-registry-prometheus'
         implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'org.springframework.cloud:spring-cloud-sleuth-zipkin'
+        implementation 'org.springframework.cloud:spring-cloud-starter-bus-kafka'
 		implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
-		implementation 'org.springframework.cloud:spring-cloud-sleuth-zipkin'
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
