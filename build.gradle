@@ -34,6 +34,9 @@ subprojects {
     version = rootProject.version
 
     dependencies {
+        implementation 'io.github.resilience4j:resilience4j-spring-boot2:1.7.0'
+        implementation 'io.github.resilience4j:resilience4j-circuitbreaker'
+        implementation 'io.github.resilience4j:resilience4j-retry'
 		implementation 'io.micrometer:micrometer-registry-prometheus'
         implementation 'org.springframework.boot:spring-boot-starter'
         implementation 'org.springframework.cloud:spring-cloud-sleuth-zipkin'
