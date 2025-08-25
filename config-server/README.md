@@ -1,4 +1,4 @@
-# Service Registry/Discovery (Eureka Server)
+# Spring Cloud Config Server
 
 The config-server module is a Spring Cloud Config Server used for providing externalized configuration for distributed systems. It allows microservices to fetch their configuration properties dynamically from a central place (Git, SVN, or local file system), ensuring consistency across environments.
 

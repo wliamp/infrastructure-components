@@ -1,13 +1,15 @@
 
 # 🔧 Spring Boot Infrastructure Components
 
-Core infrastructure components built with Spring Boot to support scalable microservices.Provide reusable foundations for common functionalities, enabling faster development and consistent architecture across projects.
+Core infrastructure components support scalable microservices. Provide reusable foundations for common functionalities, enabling faster development and consistent architecture across projects.
 
-## 📁 Projects
+## 📁 Spring Boot Projects
 
 - [API Gateway](./api-gateway) – Acts as a secure gateway for client requests, responsible for routing, authenticating JWT tokens, and forwarding validated requests to internal APIs.
 
 - [Config Server](./config-server) – Centralized configuration management module responsible for serving externalized configuration properties to all microservices, supporting dynamic property updates and environment-specific profiles.
+
+- [Identity Provider](./identity-provider) – Responsible for handling user identity and authentication across the system, supporting multiple login methods). It issues and validates JWT tokens, acting as the central authority for identity management and secure communication between clients and microservices.
 
 - [Service Registry](./service-registry) – The central service registry module responsible for registering and managing all microservices within the distributed system.
 
