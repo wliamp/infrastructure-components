@@ -16,4 +16,3 @@ project(':idp:authn').projectDir = file('identity-provider/authentication')
 project(':idp:authz').projectDir = file('identity-provider/authorization')
 
 project(':regis').projectDir = file('service-registry')
-
