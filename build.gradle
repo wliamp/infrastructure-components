@@ -1,7 +1,7 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.5.5'
-    id 'io.spring.dependency-management' version '1.1.7'
+    id 'org.springframework.boot' version '3.5.5' apply false
+    id 'io.spring.dependency-management' version '1.1.7' apply false
 }
 
 group = 'io.wliamp'
@@ -28,22 +28,21 @@ allprojects {
 
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
 
     group = rootProject.group
     version = rootProject.version
 
     dependencies {
-        implementation 'io.github.resilience4j:resilience4j-spring-boot2:1.7.0'
+        implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'io.micrometer:micrometer-registry-prometheus'
+        implementation 'io.github.resilience4j:resilience4j-spring-boot3:2.2.0'
         implementation 'io.github.resilience4j:resilience4j-circuitbreaker'
         implementation 'io.github.resilience4j:resilience4j-retry'
-		implementation 'io.micrometer:micrometer-registry-prometheus'
-        implementation 'org.springframework.boot:spring-boot-starter'
-        implementation 'org.springframework.cloud:spring-cloud-sleuth-zipkin'
         implementation 'org.springframework.cloud:spring-cloud-starter-bus-kafka'
-		implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
-        compileOnly 'org.projectlombok:lombok'
-        annotationProcessor 'org.projectlombok:lombok'
+        implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+        implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     }

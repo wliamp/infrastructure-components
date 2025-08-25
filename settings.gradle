@@ -1,7 +1,19 @@
-rootProject.name = 'infrastructure-components'
+rootProject.name = 'infras'
 
-include 'gtw', 'regis', 'config', 'authn'
+include 'gtw',
+    'config',
+    'idp',
+    'idp:authn',
+    'idp:authz',
+    'regis'
+
 project(':gtw').projectDir = file('api-gateway')
-project(':regis').projectDir = file('service-registry')
+
 project(':config').projectDir = file('config-server')
-project(':authn').projectDir = file('authentication')
+
+project(':idp').projectDir = file('identity-provider')
+project(':idp:authn').projectDir = file('identity-provider/authentication')
+project(':idp:authz').projectDir = file('identity-provider/authorization')
+
+project(':regis').projectDir = file('service-registry')
+
