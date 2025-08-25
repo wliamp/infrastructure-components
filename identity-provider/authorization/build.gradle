@@ -4,5 +4,9 @@ plugins {
     id 'io.spring.dependency-management'
 }
 
+bootJar {
+    archiveFileName = 'authz.jar'
+}
+
 dependencies {
 }
