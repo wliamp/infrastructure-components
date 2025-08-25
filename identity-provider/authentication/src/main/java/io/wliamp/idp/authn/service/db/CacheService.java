@@ -1,4 +1,4 @@
-package io.wliamp.idp.authn.service.data;
+package io.wliamp.idp.authn.service.db;
 
 import java.util.Map;
 import lombok.RequiredArgsConstructor;

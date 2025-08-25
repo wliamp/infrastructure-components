@@ -1,4 +1,4 @@
-package io.wliamp.idp.authn.service.data;
+package io.wliamp.idp.authn.service.db;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,10 @@
 package io.wliamp.idp.authn.compo.handler;
 
 import java.util.Map;
+
+import io.github.wliamp.provider.util.OauthVerifier;
+import io.github.wliamp.token.data.Type;
+import io.github.wliamp.token.util.TokenUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
@@ -9,34 +13,34 @@ import io.wliamp.idp.authn.dto.Tokens;
 @Component
 @RequiredArgsConstructor
 public class TokenHandler {
-    private final InternalToken internalToken;
+    private final TokenUtil tokenUtil;
 
-    private final ExternalToken externalToken;
+    private final OauthVerifier oauthVerifier;
 
     private Mono<Map<String, Object>> getFacebookInfo(String token) {
-        return externalToken
+        return oauthVerifier
                 .getFacebook()
                 .verify(token)
-                .flatMap(valid -> valid ? externalToken.getFacebook().getInfo(token) : Mono.empty());
+                .flatMap(valid -> valid ? oauthVerifier.getFacebook().getInfo(token) : Mono.empty());
     }
 
     private Mono<Map<String, Object>> getGoogleInfo(String token) {
-        return externalToken
+        return oauthVerifier
                 .getGoogle()
                 .verify(token)
-                .flatMap(valid -> valid ? externalToken.getGoogle().getInfo(token) : Mono.empty());
+                .flatMap(valid -> valid ? oauthVerifier.getGoogle().getInfo(token) : Mono.empty());
     }
 
     private Mono<Map<String, Object>> getZaloInfo(String token) {
-        return externalToken
+        return oauthVerifier
                 .getZalo()
                 .verify(token)
-                .flatMap(valid -> valid ? externalToken.getZalo().getInfo(token) : Mono.empty());
+                .flatMap(valid -> valid ? oauthVerifier.getZalo().getInfo(token) : Mono.empty());
     }
 
     public Mono<Tokens> issueGuestToken(String sub, Map<String, Object> extraClaims) {
-        Mono<String> accessMono = internalToken.issue(sub, Type.ACCESS, 3600, extraClaims);
-        Mono<String> refreshMono = internalToken.issue(sub, Type.REFRESH, 2592000);
+        Mono<String> accessMono = tokenUtil.issue(sub, Type.ACCESS, 3600, extraClaims);
+        Mono<String> refreshMono = tokenUtil.issue(sub, Type.REFRESH, 2592000);
         return Mono.zip(accessMono, refreshMono).map(tuple -> new Tokens(tuple.getT1(), tuple.getT2()));
     }
 

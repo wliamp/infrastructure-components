@@ -1,8 +1,8 @@
-package io.wliamp.idp.authn.service.authenticate;
+package io.wliamp.idp.authn.service.auth;
 
-import io.wliamp.idp.authn.service.data.AccService;
-import io.wliamp.idp.authn.service.data.CacheService;
-import io.wliamp.token.util.InternalToken;
+import io.github.wliamp.token.util.TokenUtil;
+import io.wliamp.idp.authn.service.db.AccService;
+import io.wliamp.idp.authn.service.db.CacheService;
 import java.time.Duration;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +29,7 @@ public class AuthService {
 
     private final CacheHandler cacheHandler;
 
-    private final InternalToken internalToken;
+    private final TokenUtil tokenUtil;
 
     private final TokenHandler tokenHandler;
 
@@ -76,10 +76,10 @@ public class AuthService {
     }
 
     public Mono<Tokens> linkAccount(String party, String oldToken, String newToken) {
-        return Mono.zip(internalToken.verify(oldToken), cacheHandler.isTokenBlacklisted(oldToken))
+        return Mono.zip(tokenUtil.verify(oldToken), cacheHandler.isTokenBlacklisted(oldToken))
                 .filter(tuple -> tuple.getT1() && !tuple.getT2())
                 .switchIfEmpty(Mono.error(new IllegalArgumentException("Invalid or blacklisted token")))
-                .then(internalToken.getClaims(oldToken))
+                .then(tokenUtil.getClaims(oldToken))
                 .flatMap(claims -> Mono.justOrEmpty((String) claims.get("sub"))
                         .doOnNext(oldCred -> log.info("link account start {}", Parser.mask(oldCred)))
                         .switchIfEmpty(Mono.error(new IllegalArgumentException("Missing subject in old token"))))
@@ -104,7 +104,7 @@ public class AuthService {
     }
 
     public Mono<Tokens> loginWithHeader(String token) {
-        return internalToken
+        return tokenUtil
                 .verify(token)
                 .filter(Boolean::booleanValue)
                 .switchIfEmpty(Mono.defer(() -> {
@@ -118,7 +118,7 @@ public class AuthService {
                             log.warn("refresh token is blacklisted");
                             return Mono.error(new IllegalStateException("Token revoked or blacklisted"));
                         }))
-                        .then(internalToken.getClaims(token))
+                        .then(tokenUtil.getClaims(token))
                         .flatMap(claims -> Mono.justOrEmpty((String) claims.get("sub"))
                                 .switchIfEmpty(
                                         Mono.error(new IllegalArgumentException("Missing subject in refresh token"))))
@@ -129,8 +129,8 @@ public class AuthService {
                                     return Mono.error(new IllegalStateException("Session expired, login required"));
                                 }))
                                 .flatMap(oldToken -> Mono.zip(
-                                                internalToken.refresh(oldToken.access(), 3600),
-                                                internalToken.refresh(token, 2592000))
+                                                tokenUtil.refresh(oldToken.access(), 3600),
+                                                tokenUtil.refresh(token, 2592000))
                                         .flatMap(tuple -> {
                                             Tokens newTokens = new Tokens(tuple.getT1(), tuple.getT2());
                                             log.info("refreshed tokens for {}", Parser.mask(subject));
@@ -142,7 +142,7 @@ public class AuthService {
     }
 
     public Mono<Void> logout(String token) {
-        return internalToken.getClaims(token).flatMap(claims -> {
+        return tokenUtil.getClaims(token).flatMap(claims -> {
             log.info("logout requested for {}", Parser.mask(claims.get("sub")));
             return commonService.evictAndBlacklist(claims.get("sub").toString(), new Tokens(token, token), token);
         });

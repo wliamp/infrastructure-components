@@ -1,7 +1,7 @@
-package io.wliamp.idp.authn.service.authenticate;
+package io.wliamp.idp.authn.service.auth;
 
-import io.wliamp.idp.authn.service.data.*;
-import io.wliamp.token.util.InternalToken;
+import io.github.wliamp.token.util.TokenUtil;
+import io.wliamp.idp.authn.service.db.*;
 import java.time.Duration;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +29,7 @@ public class CommonService {
 
     private final AccScpService accScpService;
 
-    private final InternalToken internalToken;
+    private final TokenUtil tokenUtil;
 
     private final CacheHandler cacheHandler;
 
@@ -82,7 +82,7 @@ public class CommonService {
 
     public long getExpClaim(String token) {
         try {
-            Map<String, Object> claims = internalToken.getClaims(token).block();
+            Map<String, Object> claims = tokenUtil.getClaims(token).block();
             assert claims != null;
             Object expObj = claims.get("exp");
             return expObj != null ? Long.parseLong(expObj.toString()) : 0;

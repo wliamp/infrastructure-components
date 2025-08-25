@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
-import io.wliamp.idp.authn.service.authenticate.AuthService;
+import io.wliamp.idp.authn.service.auth.AuthService;
 
 @Component
 @RequiredArgsConstructor
@@ -15,14 +15,14 @@ public class RouteHandler {
     private final ResponseHandler responseHandler;
 
     public Mono<ServerResponse> guest(ServerRequest request) {
-        return authService.guestLogin().flatMap(responseHandler::buildTokenResponse);
+        return authService.guestLogin().flatMap(responseHandler::buildTokensResponse);
     }
 
     public Mono<ServerResponse> login(ServerRequest request) {
         String party = request.pathVariable("party");
         return request.bodyToMono(String.class)
                 .flatMap(external -> authService.loginWithoutHeader(party, external))
-                .flatMap(responseHandler::buildTokenResponse);
+                .flatMap(responseHandler::buildTokensResponse);
     }
 
     public Mono<ServerResponse> relog(ServerRequest request) {
@@ -30,7 +30,7 @@ public class RouteHandler {
         if (token == null) {
             return ServerResponse.badRequest().build();
         }
-        return authService.loginWithHeader(token).flatMap(responseHandler::buildTokenResponse);
+        return authService.loginWithHeader(token).flatMap(responseHandler::buildTokensResponse);
     }
 
     public Mono<ServerResponse> link(ServerRequest request) {
@@ -41,7 +41,7 @@ public class RouteHandler {
                     assert oldToken != null;
                     return authService.linkAccount(party, oldToken, newToken);
                 })
-                .flatMap(responseHandler::buildTokenResponse);
+                .flatMap(responseHandler::buildTokensResponse);
     }
 
     public Mono<ServerResponse> logout(ServerRequest request) {
