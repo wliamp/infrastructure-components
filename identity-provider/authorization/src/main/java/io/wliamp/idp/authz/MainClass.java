@@ -1,4 +1,4 @@
-package authn;
+package io.wliamp.idp.authz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
