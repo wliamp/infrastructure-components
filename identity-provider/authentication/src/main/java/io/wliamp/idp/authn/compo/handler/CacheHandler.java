@@ -1,4 +1,4 @@
-package io.wliamp.auth.compo.handler;
+package io.wliamp.idp.authn.compo.handler;
 
 import java.time.Duration;
 import java.util.Collection;

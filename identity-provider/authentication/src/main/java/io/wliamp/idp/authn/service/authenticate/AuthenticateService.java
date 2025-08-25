@@ -1,7 +1,7 @@
-package io.wliamp.auth.service.authenticate;
+package io.wliamp.idp.authn.service.authenticate;
 
-import io.wliamp.auth.service.data.AccService;
-import io.wliamp.auth.service.data.CacheService;
+import io.wliamp.idp.authn.service.data.AccService;
+import io.wliamp.idp.authn.service.data.CacheService;
 import io.wliamp.token.util.InternalToken;
 import java.time.Duration;
 import java.util.Map;
@@ -10,12 +10,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
-import io.wliamp.auth.compo.handler.CacheHandler;
-import io.wliamp.auth.compo.handler.TokenHandler;
-import io.wliamp.auth.compo.helper.PartyHelper;
-import io.wliamp.auth.dto.Tokens;
-import io.wliamp.auth.util.Generator;
-import io.wliamp.auth.util.Parser;
+import io.wliamp.idp.authn.compo.handler.CacheHandler;
+import io.wliamp.idp.authn.compo.handler.TokenHandler;
+import io.wliamp.idp.authn.compo.helper.PartyHelper;
+import io.wliamp.idp.authn.dto.Tokens;
+import io.wliamp.idp.authn.util.Generator;
+import io.wliamp.idp.authn.util.Parser;
 
 @Service
 @Slf4j

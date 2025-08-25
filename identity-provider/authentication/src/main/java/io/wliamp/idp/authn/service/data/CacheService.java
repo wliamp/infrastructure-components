@@ -1,11 +1,11 @@
-package io.wliamp.auth.service.data;
+package io.wliamp.idp.authn.service.data;
 
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
-import io.wliamp.auth.compo.handler.CacheHandler;
-import io.wliamp.auth.dto.Tokens;
+import io.wliamp.idp.authn.compo.handler.CacheHandler;
+import io.wliamp.idp.authn.dto.Tokens;
 
 @Service
 @RequiredArgsConstructor

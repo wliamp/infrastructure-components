@@ -1,4 +1,4 @@
-package io.wliamp.auth.dto;
+package io.wliamp.idp.authn.dto;
 
 import lombok.Builder;
 

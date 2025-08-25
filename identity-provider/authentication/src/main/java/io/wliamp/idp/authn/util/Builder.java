@@ -1,9 +1,9 @@
-package io.wliamp.auth.util;
+package io.wliamp.idp.authn.util;
 
 import java.util.List;
 import java.util.Map;
-import io.wliamp.auth.entity.Aud;
-import io.wliamp.auth.entity.Scope;
+import io.wliamp.idp.authn.entity.Aud;
+import io.wliamp.idp.authn.entity.Scope;
 
 public class Builder {
     public static Map<String, Object> buildTokenExtraClaims(List<Scope> scopes, List<Aud> auds) {

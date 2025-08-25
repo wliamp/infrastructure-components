@@ -1,4 +1,4 @@
-package io.wliamp.auth.config;
+package io.wliamp.idp.authn.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;

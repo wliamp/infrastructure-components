@@ -1,11 +1,11 @@
-package io.wliamp.auth.service.data;
+package io.wliamp.idp.authn.service.data;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
-import io.wliamp.auth.entity.Acc;
-import io.wliamp.auth.repo.AccRepo;
-import io.wliamp.auth.util.Generator;
+import io.wliamp.idp.authn.entity.Acc;
+import io.wliamp.idp.authn.repo.AccRepo;
+import io.wliamp.idp.authn.util.Generator;
 
 @Service
 @RequiredArgsConstructor

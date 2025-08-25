@@ -1,4 +1,4 @@
-package io.wliamp.auth.compo.property;
+package io.wliamp.idp.authn.compo.property;
 
 import java.util.ArrayList;
 import java.util.List;

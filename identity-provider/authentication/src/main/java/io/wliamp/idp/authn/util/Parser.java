@@ -1,9 +1,9 @@
-package io.wliamp.auth.util;
+package io.wliamp.idp.authn.util;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import io.wliamp.auth.entity.Aud;
-import io.wliamp.auth.entity.Scope;
+import io.wliamp.idp.authn.entity.Aud;
+import io.wliamp.idp.authn.entity.Scope;
 
 public class Parser {
     public static String parseScope(List<Scope> scopes) {

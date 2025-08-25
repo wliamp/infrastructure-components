@@ -1,4 +1,4 @@
-package io.wliamp.auth.config;
+package io.wliamp.idp.authn.config;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +15,7 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.security.web.server.context.ServerSecurityContextRepository;
 import org.springframework.security.web.server.context.WebSessionServerSecurityContextRepository;
 import reactor.core.publisher.Mono;
-import io.wliamp.auth.compo.property.BypassProperties;
+import io.wliamp.idp.authn.compo.property.BypassProperties;
 
 @Configuration
 @EnableWebFluxSecurity

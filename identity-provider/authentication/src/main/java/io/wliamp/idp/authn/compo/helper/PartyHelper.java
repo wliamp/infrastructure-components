@@ -1,8 +1,8 @@
-package io.wliamp.auth.compo.helper;
+package io.wliamp.idp.authn.compo.helper;
 
 import java.util.Map;
 import reactor.core.publisher.Mono;
-import io.wliamp.auth.dto.Tokens;
+import io.wliamp.idp.authn.dto.Tokens;
 
 public interface PartyHelper {
     Mono<String> getSubject(String token);

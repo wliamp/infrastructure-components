@@ -1,4 +1,4 @@
-package io.wliamp.auth.entity;
+package io.wliamp.idp.authn.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,13 +1,10 @@
-package io.wliamp.auth.compo.handler;
+package io.wliamp.idp.authn.compo.handler;
 
-import io.wliamp.token.data.Type;
-import io.wliamp.token.util.ExternalToken;
-import io.wliamp.token.util.InternalToken;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
-import io.wliamp.auth.dto.Tokens;
+import io.wliamp.idp.authn.dto.Tokens;
 
 @Component
 @RequiredArgsConstructor

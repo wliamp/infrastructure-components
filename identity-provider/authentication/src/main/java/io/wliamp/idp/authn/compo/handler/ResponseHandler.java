@@ -1,9 +1,9 @@
-package io.wliamp.auth.compo.handler;
+package io.wliamp.idp.authn.compo.handler;
 
+import io.wliamp.idp.authn.dto.Tokens;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
-import io.wliamp.auth.dto.Tokens;
 
 @Component
 public class ResponseHandler {

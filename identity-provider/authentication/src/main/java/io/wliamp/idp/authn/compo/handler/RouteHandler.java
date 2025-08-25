@@ -1,11 +1,11 @@
-package io.wliamp.auth.compo.handler;
+package io.wliamp.idp.authn.compo.handler;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
-import io.wliamp.auth.service.authenticate.AuthenticateService;
+import io.wliamp.idp.authn.service.authenticate.AuthenticateService;
 
 @Component
 @RequiredArgsConstructor

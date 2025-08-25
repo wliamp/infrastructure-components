@@ -1,4 +1,4 @@
-package io.wliamp.auth.config;
+package io.wliamp.idp.authn.config;
 
 import static org.springframework.web.reactive.function.server.RequestPredicates.path;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
-import io.wliamp.auth.compo.handler.RouteHandler;
+import io.wliamp.idp.authn.compo.handler.RouteHandler;
 
 @Configuration
 @RequiredArgsConstructor

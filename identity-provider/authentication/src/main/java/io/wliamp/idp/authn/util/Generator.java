@@ -1,4 +1,4 @@
-package io.wliamp.auth.util;
+package io.wliamp.idp.authn.util;
 
 import java.util.UUID;
 

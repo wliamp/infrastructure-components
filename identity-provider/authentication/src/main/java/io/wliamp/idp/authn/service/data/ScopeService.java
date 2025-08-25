@@ -1,10 +1,10 @@
-package io.wliamp.auth.service.data;
+package io.wliamp.idp.authn.service.data;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
-import io.wliamp.auth.entity.Scope;
-import io.wliamp.auth.repo.ScopeRepo;
+import io.wliamp.idp.authn.entity.Scope;
+import io.wliamp.idp.authn.repo.ScopeRepo;
 
 @Service
 @RequiredArgsConstructor

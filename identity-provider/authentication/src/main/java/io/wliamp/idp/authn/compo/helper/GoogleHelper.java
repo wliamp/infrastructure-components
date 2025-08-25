@@ -1,11 +1,11 @@
-package io.wliamp.auth.compo.helper;
+package io.wliamp.idp.authn.compo.helper;
 
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
-import io.wliamp.auth.compo.handler.TokenHandler;
-import io.wliamp.auth.dto.Tokens;
+import io.wliamp.idp.authn.compo.handler.TokenHandler;
+import io.wliamp.idp.authn.dto.Tokens;
 
 @Component("google")
 @RequiredArgsConstructor
