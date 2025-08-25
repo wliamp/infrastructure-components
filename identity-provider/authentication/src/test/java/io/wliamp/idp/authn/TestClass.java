@@ -1,4 +1,4 @@
-package authn;
+package io.wliamp.idp.authn;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
