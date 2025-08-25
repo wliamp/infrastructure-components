@@ -1,4 +1,4 @@
-package config;
+package io.wliamp.config;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

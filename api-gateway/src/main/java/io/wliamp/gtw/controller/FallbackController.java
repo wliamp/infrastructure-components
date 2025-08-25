@@ -1,4 +1,4 @@
-package gtw.controller;
+package io.wliamp.gtw.controller;
 
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.ResponseEntity;

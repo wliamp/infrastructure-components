@@ -1,4 +1,4 @@
-package gtw.compo;
+package io.wliamp.gtw.compo;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

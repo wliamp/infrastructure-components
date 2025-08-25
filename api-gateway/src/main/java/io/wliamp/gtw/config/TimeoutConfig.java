@@ -1,4 +1,4 @@
-package gtw.config;
+package io.wliamp.gtw.config;
 
 import io.netty.channel.ChannelOption;
 import java.time.Duration;

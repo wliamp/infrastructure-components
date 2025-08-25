@@ -1,6 +1,6 @@
-package gtw.config;
+package io.wliamp.gtw.config;
 
-import gtw.compo.CorsProperties;
+import io.wliamp.gtw.compo.CorsProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
