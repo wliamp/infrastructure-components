@@ -3,16 +3,16 @@ package io.wliamp.idp.authn.util;
 import java.util.List;
 import java.util.stream.Collectors;
 import io.wliamp.idp.authn.entity.Aud;
-import io.wliamp.idp.authn.entity.Scope;
+import io.wliamp.idp.authn.entity.Scp;
 
 public class Parser {
-    public static String parseScope(List<Scope> scopes) {
-        return scopes.stream()
-                .map(scope -> scope.getRes() + ":" + scope.getAct())
+    public static String parseScp(List<Scp> scps) {
+        return scps.stream()
+                .map(scp -> scp.getRes() + ":" + scp.getAct())
                 .collect(Collectors.joining(" "));
     }
 
-    public static List<String> parseAudience(List<Aud> auds) {
+    public static List<String> parseAud(List<Aud> auds) {
         return auds.stream().map(Aud::getCode).toList();
     }
 

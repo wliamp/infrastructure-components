@@ -11,7 +11,7 @@ import org.springframework.data.relational.core.mapping.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table("account_scope")
-public class AccScope {
+public class AccScp {
     private Long accId; // account ID
-    private Long scopeId;
+    private Long scpId; // scope ID
 }

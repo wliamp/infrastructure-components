@@ -12,6 +12,6 @@ import org.springframework.data.relational.core.mapping.Table;
 @AllArgsConstructor
 @Table("account_audience")
 public class AccAud {
-    private Long accId;
-    private Long audId;
+    private Long accId; // account ID
+    private Long audId; // audience ID
 }

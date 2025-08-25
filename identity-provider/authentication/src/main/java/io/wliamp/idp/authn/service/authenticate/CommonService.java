@@ -23,11 +23,11 @@ public class CommonService {
 
     private final AudService audService;
 
-    private final ScopeService scopeService;
+    private final ScpService scpService;
 
     private final AccAudService accAudService;
 
-    private final AccScopeService accScopeService;
+    private final AccScpService accScpService;
 
     private final InternalToken internalToken;
 
@@ -44,14 +44,14 @@ public class CommonService {
                 .switchIfEmpty(accService
                         .addNewAccount(cred)
                         .flatMap(accId -> Mono.when(
-                                        accScopeService.addNewAccount(accId), accAudService.addNewAccount(accId))
+                                        accScpService.addNewAccount(accId), accAudService.addNewAccount(accId))
                                 .thenReturn(accId))
                         .doOnNext(newId -> log.info("Created new account {} for {}", newId, cred)));
     }
 
     public Mono<Map<String, Object>> buildScopeAndAudiencesClaims(Long accId) {
         return Mono.zip(
-                        scopeService.getScopesByAccountId(accId).collectList(),
+                        scpService.getScopesByAccountId(accId).collectList(),
                         audService.getAudiencesByAccountId(accId).collectList())
                 .map(t -> Builder.buildTokenExtraClaims(t.getT1(), t.getT2()));
     }

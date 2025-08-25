@@ -20,7 +20,7 @@ import io.wliamp.idp.authn.util.Parser;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class AuthenticateService {
+public class AuthService {
     private final CommonService commonService;
 
     private final CacheService cacheService;
@@ -123,7 +123,7 @@ public class AuthenticateService {
                                 .switchIfEmpty(
                                         Mono.error(new IllegalArgumentException("Missing subject in refresh token"))))
                         .flatMap(subject -> cacheService
-                                .loadUserToken("auth:" + subject)
+                                .loadTokens("auth:" + subject)
                                 .switchIfEmpty(Mono.defer(() -> {
                                     log.warn("Session expired for {}", subject);
                                     return Mono.error(new IllegalStateException("Session expired, login required"));

@@ -10,7 +10,7 @@ import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.data.redis.serializer.*;
 
 @Configuration
-public class RedisConfig {
+public class CacheConfig {
     @Bean
     public ReactiveRedisTemplate<String, Object> reactiveRedisTemplate(
             ReactiveRedisConnectionFactory connectionFactory) {

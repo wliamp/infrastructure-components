@@ -1,4 +1,4 @@
-package io.wliamp.idp.authn.compo.property;
+package io.wliamp.idp.authn.compo.props;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Getter
 @Component
 @ConfigurationProperties(prefix = "security")
-public class BypassProperties {
+public class BypassProps {
     private List<String> bypassHeaders = new ArrayList<>();
 
     ////        Optional:

@@ -4,15 +4,15 @@ import org.springframework.data.r2dbc.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import reactor.core.publisher.Flux;
-import io.wliamp.idp.authn.entity.Scope;
+import io.wliamp.idp.authn.entity.Scp;
 
-public interface ScopeRepo extends ReactiveCrudRepository<Scope, Long> {
+public interface ScpRepo extends ReactiveCrudRepository<Scp, Long> {
     //    @Query("""
     //            SELECT *
     //            FROM scopes
     //            WHERE status = true
     //            """)
-    Flux<Scope> findByStatusTrue();
+    Flux<Scp> findByStatusTrue();
 
     @Query(
             """
@@ -22,5 +22,5 @@ public interface ScopeRepo extends ReactiveCrudRepository<Scope, Long> {
             JOIN accounts a ON sa.account_id = a.id
             WHERE a.id = :accId
             """)
-    Flux<Scope> findByAccId(@Param("accId") Long accId);
+    Flux<Scp> findByAccId(@Param("accId") Long accId);
 }

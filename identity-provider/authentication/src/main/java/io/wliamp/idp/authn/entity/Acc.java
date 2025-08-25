@@ -13,12 +13,9 @@ import org.springframework.data.relational.core.mapping.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table("accounts")
-public class Acc { // Account
+public class Acc {
     @Id
     private Long id;
 
-    private String code;
-
-    @Column("credential")
-    private String cred;
+    private String cred; // credential
 }

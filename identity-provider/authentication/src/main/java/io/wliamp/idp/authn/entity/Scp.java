@@ -12,7 +12,7 @@ import org.springframework.data.relational.core.mapping.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table("scopes")
-public class Scope {
+public class Scp {
     @Id
     private Long id;
 

@@ -12,7 +12,7 @@ import io.wliamp.idp.authn.dto.Tokens;
 public class CacheService {
     private final CacheHandler cacheHandler;
 
-    public Mono<Tokens> loadUserToken(String key) {
+    public Mono<Tokens> loadTokens(String key) {
         return cacheHandler.get(key, Object.class).flatMap(obj -> switch (obj) {
             case Tokens token -> Mono.just(token);
             case Map<?, ?> map -> Mono.just(new Tokens((String) map.get("access"), (String) map.get("refresh")));

@@ -15,7 +15,7 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.security.web.server.context.ServerSecurityContextRepository;
 import org.springframework.security.web.server.context.WebSessionServerSecurityContextRepository;
 import reactor.core.publisher.Mono;
-import io.wliamp.idp.authn.compo.property.BypassProperties;
+import io.wliamp.idp.authn.compo.props.BypassProps;
 
 @Configuration
 @EnableWebFluxSecurity
@@ -32,7 +32,7 @@ public class SecurityConfig {
         // return new ServerSecurityContextRepository() { ... };
     }
 
-    private final BypassProperties bypassProperties;
+    private final BypassProps bypassProps;
 
     @Bean
     public SecurityWebFilterChain securityWebFilterChain(
@@ -48,7 +48,7 @@ public class SecurityConfig {
                                     ServerHttpRequest request =
                                             context.getExchange().getRequest();
                                     HttpHeaders headers = request.getHeaders();
-                                    for (String header : bypassProperties.getBypassHeaders()) {
+                                    for (String header : bypassProps.getBypassHeaders()) {
                                         if (headers.containsKey(header)) {
                                             return Mono.just(new AuthorizationDecision(true));
                                             ////                              Optional:
