@@ -9,4 +9,6 @@ bootJar {
 }
 
 dependencies {
+    implementation 'io.github.wliamp:spring-boot-starter-reactive-provider:0.0.1'
+    implementation 'io.github.wliamp:spring-boot-starter-reactive-token:0.0.1'
 }
