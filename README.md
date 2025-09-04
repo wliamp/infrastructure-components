@@ -1,5 +1,5 @@
 
-# 🔧 Spring Boot Infrastructure Components
+# 🔧 Infrastructure Components
 
 Core infrastructure components support scalable microservices. Provide reusable foundations for common functionalities, enabling faster development and consistent architecture across projects.
 
